@@ -5,128 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Click2Cargo Logistics | Enterprise B2B Cold Chain Leasing</title>
     <style>
-        :root { --primary-navy: #0A192F; --secondary-blue: #172A45; --accent-orange: #FF6B35; --text-light: #F4F6F9; --text-dark: #0A192F; --card-bg: #FFFFFF; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+        :root { --primary-navy: #0A192F; --accent-orange: #FF6B35; --text-dark: #0A192F; }
         body { color: var(--text-dark); background-color: #F8FAFC; line-height: 1.6; }
-        
-        header { background: var(--primary-navy); color: white; padding: 20px 8%; display: flex; flex-direction: column; align-items: center; gap: 15px; position: sticky; top: 0; z-index: 1000; }
-        @media(min-width: 768px) { header { flex-direction: row; justify-content: space-between; } }
-        .logo { font-size: 28px; font-weight: 800; }
-        .logo span { color: var(--accent-orange); }
-        .udyam-badge { background: rgba(255,107,53,0.15); padding: 6px 14px; border-radius: 20px; font-size: 12px; border: 1px solid var(--accent-orange); color: var(--accent-orange); }
-        
-        nav { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
-        .nav-tab { background: transparent; color: #8892B0; border: none; padding: 8px 16px; cursor: pointer; border-radius: 4px; font-weight: 600; }
-        .nav-tab:hover, .nav-tab.active { color: var(--accent-orange); background: rgba(255,107,53,0.1); }
-        
-        .page-content { display: none; padding: 60px 8%; max-width: 1200px; margin: 0 auto; min-height: 60vh; }
-        .page-content.active-page { display: block; }
-        
-        .hero { background: linear-gradient(rgba(10, 25, 47, 0.82), rgba(10, 25, 47, 0.92)), url('https://unsplash.com') center/cover; color: white; padding: 100px 5%; text-align: center; border-radius: 12px; margin-bottom: 40px; }
-        .hero h1 { font-size: 42px; margin-bottom: 20px; }
-        .hero p { font-size: 18px; max-width: 800px; margin: 0 auto 35px; color: #8892B0; }
-        
-        .cta-btn { background: var(--accent-orange); color: white; padding: 14px 35px; text-decoration: none; border-radius: 6px; display: inline-block; cursor: pointer; border: none; font-size: 16px; font-weight: bold; margin-top: 15px; }
-        .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 25px; }
-        
-        .info-card { background: var(--card-bg); padding: 35px; border-radius: 8px; border-top: 4px solid var(--primary-navy); box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
-        .edit-field { padding: 2px; transition: 0.3s; }
-        .edit-field[contenteditable="true"] { border: 1px dashed var(--accent-orange); background: #FFFDE7; color: #000; }
-        
-        .counter-section { background: var(--secondary-blue); color: white; padding: 20px; text-align: center; border-radius: 8px; margin: 30px 0; }
-        .counter-number { font-size: 32px; font-weight: bold; color: var(--accent-orange); margin-top: 5px; }
-        
-        .scheme-detail { background: #F1F5F9; padding: 20px; margin-top: 15px; border-radius: 6px; border-left: 4px solid var(--accent-orange); display: none; text-align: left; }
-        
-        /* Private Owner Panel Styles */
-        .status-badge { background: #DEF7EC; color: #03543F; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: bold; display: inline-block; margin-top: 5px; }
-        .owner-only-section { display: none; margin-top: 40px; animation: fadeIn 0.4s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        
-        .quote-form { background: white; padding: 35px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 25px; border-top: 4px solid var(--accent-orange); }
-        .form-group { margin-bottom: 18px; text-align: left; }
-        .form-group label { display: block; font-weight: bold; margin-bottom: 6px; color: var(--primary-navy); font-size: 15px; }
-        .form-control { width: 100%; padding: 12px; border: 1px solid #CBD5E0; border-radius: 4px; font-size: 14px; background: #F8FAFC; }
-
-        /* Corporate Admin Login Styles */
-        .admin-login-box { background: #F8FAFC; border: 1px solid #E2E8F0; padding: 25px; text-align: center; max-width: 340px; margin: 50px auto 0; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-        .admin-input { padding: 12px; width: 100%; margin-bottom: 15px; border: 1px solid #CBD5E0; border-radius: 4px; text-align: center; font-size: 14px; }
-        .admin-btn { background: var(--primary-navy); color: white; border: none; padding: 12px 15px; cursor: pointer; border-radius: 4px; width: 100%; font-weight: bold; font-size: 14px; transition: background 0.2s; }
-        .admin-btn:hover { background: #172A45; }
-        .editor-notice { display: none; background: #C6F6D5; color: #22543D; padding: 15px; text-align: center; border-radius: 6px; font-weight: bold; max-width: 600px; margin: 20px auto; }
-        
-        .contact-panel { background: white; padding: 40px; border-radius: 8px; text-align: center; max-width: 600px; margin: 0 auto; }
-        .contact-item { margin: 25px 0; }
-        .contact-link { color: var(--accent-orange); text-decoration: none; font-weight: bold; }
-        footer { background: #060F1E; color: #8892B0; padding: 40px 5%; text-align: center; margin-top: 80px; }
+        header { background: var(--primary-navy); color: white; padding: 20px; }
+        .hero { text-align: center; padding: 50px; }
+        .cta-btn { background: var(--accent-orange); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; }
+        .grid-layout { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .info-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .edit-field { border: 1px dashed transparent; }
+        .edit-field[contenteditable="true"] { border-color: var(--accent-orange); background: #FFFDE7; }
+        .admin-login-box { text-align: center; padding: 20px; margin: 20px; border: 1px solid #ccc; }
     </style>
 </head>
 <body>
-
-    <header>
-        <div class="logo">Click2<span>Cargo</span></div>
-        <nav>
-            <button class="nav-tab active" onclick="switchPage('home')">Home</button>
-            <button class="nav-tab" onclick="switchPage('about')">About</button>
-            <button class="nav-tab" onclick="switchPage('services')">Capabilities</button>
-            <button class="nav-tab" onclick="switchPage('schemes')">Govt Schemes</button>
-            <button class="nav-tab" onclick="switchPage('enquiry')">Enquiry Portal</button>
-            <button class="nav-tab" onclick="switchPage('fleet')">Join Fleet</button>
-            <button class="nav-tab" onclick="switchPage('contact')">Contact Desk</button>
-        </nav>
-        <div class="udyam-badge">TS-REGD: <span class="edit-field" id="udyam-id">UDYAM-TS-20-0205801</span></div>
-    </header>
-
-    <div style="max-width: 1200px; margin: 20px auto 0; padding: 0 8%;">
-        <div class="counter-section">
-            <p>📊 Click2Cargo Global Digital Traffic</p>
-            <div class="counter-number">
-                <img src="https://pythonanywhere.com" alt="Visitor Count">
-            </div>
-            <p style="font-size: 12px; color: #8892B0; margin-top: 5px;">Total verification clicks logged from corporate supply chain managers</p>
-        </div>
-        <div id="success-notice" class="editor-notice">🔒 2026 ADMIN MASTER PORTAL UNLOCKED: System control ledger is now fully active for content adjustments!</div>
-    </div>
-
-    <!-- PAGE 1: HOME PANEL -->
-    <main id="home" class="page-content active-page">
+    <header><h1>Click2<span>Cargo</span></h1></header>
+    <main class="page-content active-page">
         <div class="hero">
-            <h1 class="edit-field" id="hero-title">Premium Unmanned Cold Chain Infrastructure</h1>
-            <p class="edit-field" id="hero-desc">Deploying factory-fresh, sub-zero refrigerated commercial vehicle assets across pharmaceutical hubs in Telangana.</p>
-            <button class="cta-btn" onclick="switchPage('enquiry')">Launch Corporate Enquiry</button>
+            <h2 class="edit-field" id="hero-title">Premium Cold Chain Logistics</h2>
+            <p class="edit-field" id="hero-desc">Sub-zero refrigerated transport solutions in Telangana.</p>
         </div>
-        
-        <!-- SECURE OWNER-ONLY PANEL 1: LIVE VEHICLE ALLOCATION STATUS BOARD -->
-        <div class="owner-only-section">
-            <h2 class="edit-field" id="status-board-title">🔒 Private Asset Pipeline Status</h2>
-            <div class="grid-layout" style="margin-bottom: 40px;">
-                <div class="info-card" style="text-align: center; border-top-color: #48BB78;">
-                    <h3 class="edit-field" id="stat1-n">05 Vehicles</h3>
-                    <span class="status-badge">Next Batch Allocation Available</span>
-                    <p class="edit-field" id="stat1-d" style="font-size: 13px; margin-top: 5px;">Mahindra Bolero / Tata Intra Reefer Chassis reserved for incoming corporate LOI attachment.</p>
-                </div>
-                <div class="info-card" style="text-align: center; border-top-color: #3182CE;">
-                    <h3 class="edit-field" id="stat2-n">100 Members</h3>
-                    <span class="status-badge" style="background:#EBF8FF; color:#2B6CB0;">On-Ground Youth Pool Active</span>
-                    <p class="edit-field" id="stat2-d" style="font-size: 13px; margin-top: 5px;">Marginalized SC/ST/BC micro-entrepreneurs living below the poverty line, ready to secure assets.</p>
-                </div>
-            </div>
-        </div>
-
         <div class="grid-layout">
-            <div class="info-card">
-                <h3 class="edit-field" id="card1-title">Asset-Light Operations</h3>
-                <p class="edit-field" id="card1-desc">We strictly provision the physical refrigerated asset. The lessee manages all driver allocations and fueling parameters.</p>
-            </div>
-            <div class="info-card">
-                <h3 class="edit-field" id="card2-title">Zero Overhead Risk</h3>
-                <p class="edit-field" id="card2-desc">Eliminate driver absenteeism, labor regulatory liabilities, and recurring vehicle maintenance worries completely.</p>
-            </div>
+            <div class="info-card"><h3 class="edit-field">Asset-Light</h3><p class="edit-field">Reefer provisioning.</p></div>
+            <div class="info-card"><h3 class="edit-field">Zero Risk</h3><p class="edit-field">Maintenance-free.</p></div>
         </div>
     </main>
-
-    <!-- PAGE 2: ABOUT -->
-    <main id="about" class="page-content">
-        <h2 class="edit-field" id="about-title">Leadership Profile & Vision</h2>
-        <div class="info-card" style="line-height: 1.8;">
-            <h3 class="edit-field" id="founder-name">Gaganam Ravikumar</h3>
+    <div class="admin-login-box" id="auth-box">
+        <input type="password" id="pass-input" placeholder="Password"><button onclick="verifyOwner()">Login</button>
+    </div>
+    <script>
+        function verifyOwner() {
+            if(document.getElementById('pass-input').value === '2026') {
+                document.querySelectorAll('.edit-field').forEach(f => f.setAttribute('contenteditable', 'true'));
+            } else { alert('Invalid Password'); }
+        }
+    </script>
+</body>
+</html>
