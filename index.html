@@ -3,76 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Click2Cargo Logistics | B2B Cold Chain Infrastructure Leasing</title>
+    <title>Click2Cargo Logistics | Enterprise B2B Cold Chain Leasing</title>
     <style>
-        :root {
-            --primary-navy: #0A192F;
-            --secondary-blue: #172A45;
-            --accent-orange: #FF6B35;
-            --text-light: #F4F6F9;
-            --text-dark: #0A192F;
-            --card-bg: #FFFFFF;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        :root { --primary-navy: #0A192F; --secondary-blue: #172A45; --accent-orange: #FF6B35; --text-light: #F4F6F9; --text-dark: #0A192F; --card-bg: #FFFFFF; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
         body { color: var(--text-dark); background-color: #F8FAFC; line-height: 1.6; }
         
-        /* Premium Header & Navigation */
-        header { background: var(--primary-navy); color: white; padding: 20px 8%; display: flex; flex-direction: column; align-items: center; gap: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); position: sticky; top: 0; z-index: 1000; }
+        header { background: var(--primary-navy); color: white; padding: 20px 8%; display: flex; flex-direction: column; align-items: center; gap: 15px; position: sticky; top: 0; z-index: 1000; }
         @media(min-width: 768px) { header { flex-direction: row; justify-content: space-between; } }
-        .logo { font-size: 28px; font-weight: 800; letter-spacing: 0.5px; }
+        .logo { font-size: 28px; font-weight: 800; }
         .logo span { color: var(--accent-orange); }
-        .udyam-badge { background: rgba(255,107,53,0.15); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; border: 1px solid var(--accent-orange); color: var(--accent-orange); }
+        .udyam-badge { background: rgba(255,107,53,0.15); padding: 6px 14px; border-radius: 20px; font-size: 12px; border: 1px solid var(--accent-orange); color: var(--accent-orange); }
         
         nav { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
-        .nav-tab { background: transparent; color: #8892B0; border: none; padding: 8px 16px; font-size: 14px; font-weight: 600; cursor: pointer; border-radius: 4px; transition: 0.3s; }
+        .nav-tab { background: transparent; color: #8892B0; border: none; padding: 8px 16px; cursor: pointer; border-radius: 4px; font-weight: 600; }
         .nav-tab:hover, .nav-tab.active { color: var(--accent-orange); background: rgba(255,107,53,0.1); }
-
-        /* Dynamic Pages Handling */
+        
         .page-content { display: none; padding: 60px 8%; max-width: 1200px; margin: 0 auto; min-height: 60vh; }
-        .page-content.active-page { display: block; animation: fadeIn 0.5s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Hero Banner Section with Reefer Vehicle Background */
-        .hero { background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.95)), url('https://unsplash.com') center/cover; color: white; padding: 100px 5%; text-align: center; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .hero h1 { font-size: 42px; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+        .page-content.active-page { display: block; }
+        
+        .hero { background: linear-gradient(rgba(10, 25, 47, 0.82), rgba(10, 25, 47, 0.92)), url('https://unsplash.com') center/cover; color: white; padding: 100px 5%; text-align: center; border-radius: 12px; margin-bottom: 40px; }
+        .hero h1 { font-size: 42px; margin-bottom: 20px; }
         .hero p { font-size: 18px; max-width: 800px; margin: 0 auto 35px; color: #8892B0; }
         
-        /* Functional Button Actions */
-        .cta-btn { background: var(--accent-orange); color: white; padding: 14px 35px; text-decoration: none; font-weight: 700; border-radius: 6px; display: inline-block; box-shadow: 0 4px 15px rgba(255,107,53,0.4); transition: 0.3s; margin: 10px; font-size: 16px; border: none; cursor: pointer; }
-        .cta-btn:hover { background: #E0531C; transform: translateY(-2px); }
-        .secondary-btn { background: transparent; color: white; border: 2px solid #8892B0; }
-        .secondary-btn:hover { border-color: var(--accent-orange); color: var(--accent-orange); background: rgba(255,107,53,0.05); }
-
-        /* Structure Cards & Layouts */
-        .section-title { font-size: 32px; color: var(--primary-navy); margin-bottom: 40px; font-weight: 800; position: relative; }
-        .section-title::after { content: ''; display: block; width: 50px; height: 5px; background: var(--accent-orange); margin-top: 10px; border-radius: 2px; }
+        .cta-btn { background: var(--accent-orange); color: white; padding: 14px 35px; text-decoration: none; border-radius: 6px; display: inline-block; cursor: pointer; border: none; font-size: 16px; font-weight: bold; margin-top: 15px; }
+        .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 25px; }
         
-        .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
-        .info-card { background: var(--card-bg); padding: 35px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); border-top: 4px solid var(--primary-navy); transition: 0.3s; }
-        .info-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
-        .info-card h3 { color: var(--primary-navy); font-size: 22px; margin-bottom: 15px; }
-        .info-card p { color: #566573; font-size: 15px; }
+        .info-card { background: var(--card-bg); padding: 35px; border-radius: 8px; border-top: 4px solid var(--primary-navy); box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .edit-field { padding: 2px; transition: 0.3s; }
+        .edit-field[contenteditable="true"] { border: 1px dashed var(--accent-orange); background: #FFFDE7; color: #000; }
+        
+        .counter-section { background: var(--secondary-blue); color: white; padding: 20px; text-align: center; border-radius: 8px; margin: 30px 0; }
+        .counter-number { font-size: 32px; font-weight: bold; color: var(--accent-orange); margin-top: 5px; }
+        
+        .scheme-detail { background: #F1F5F9; padding: 20px; margin-top: 15px; border-radius: 6px; border-left: 4px solid var(--accent-orange); display: none; text-align: left; }
+        
+        /* Private Owner Panel Styles */
+        .status-badge { background: #DEF7EC; color: #03543F; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: bold; display: inline-block; margin-top: 5px; }
+        .owner-only-section { display: none; margin-top: 40px; animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        .quote-form { background: white; padding: 35px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 25px; border-top: 4px solid var(--accent-orange); }
+        .form-group { margin-bottom: 18px; text-align: left; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 6px; color: var(--primary-navy); font-size: 15px; }
+        .form-control { width: 100%; padding: 12px; border: 1px solid #CBD5E0; border-radius: 4px; font-size: 14px; background: #F8FAFC; }
 
-        /* Profile Layout Container */
-        .profile-container { display: flex; flex-direction: column; gap: 40px; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); margin: 0 auto; max-width: 1000px; }
-        @media(min-width: 768px) { .profile-container { flex-direction: row; align-items: flex-start; } }
-        .profile-photo { width: 220px; height: 220px; border-radius: 8px; object-fit: cover; border: 4px solid var(--primary-navy); box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin: 0 auto; flex-shrink: 0; }
-        .profile-text { flex-grow: 1; line-height: 1.8; }
-
-        /* Empathy/DEI Impact Box Banner with Logistics Image Background */
-        .impact-banner { background: linear-gradient(rgba(23, 42, 69, 0.95), rgba(23, 42, 69, 0.98)), url('https://unsplash.com') center/cover; color: white; padding: 45px; border-radius: 8px; border-left: 6px solid var(--accent-orange); margin-top: 20px; }
-        .impact-banner h3 { font-size: 26px; color: white; margin-bottom: 15px; }
-        .impact-banner p { color: #8892B0; font-size: 16px; margin-bottom: 15px; }
-
-        /* Contact Details Panel Layout */
-        .contact-panel { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); max-width: 600px; margin: 0 auto; text-align: center; }
-        .contact-item { margin: 25px 0; font-size: 18px; font-weight: 600; }
-        .contact-item span { display: block; font-size: 14px; color: #7F8C8D; margin-bottom: 5px; font-weight: normal; }
-        .contact-link { color: var(--accent-orange); text-decoration: none; border-bottom: 2px solid transparent; transition: 0.3s; }
-        .contact-link:hover { border-color: var(--accent-orange); }
-
-        footer { background: #060F1E; color: #8892B0; padding: 40px 5%; text-align: center; font-size: 13px; margin-top: 80px; border-top: 1px solid #172A45; }
-        .footer-logo { color: white; font-weight: 700; font-size: 20px; margin-bottom: 5px; }
+        /* Corporate Admin Login Styles */
+        .admin-login-box { background: #F8FAFC; border: 1px solid #E2E8F0; padding: 25px; text-align: center; max-width: 340px; margin: 50px auto 0; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .admin-input { padding: 12px; width: 100%; margin-bottom: 15px; border: 1px solid #CBD5E0; border-radius: 4px; text-align: center; font-size: 14px; }
+        .admin-btn { background: var(--primary-navy); color: white; border: none; padding: 12px 15px; cursor: pointer; border-radius: 4px; width: 100%; font-weight: bold; font-size: 14px; transition: background 0.2s; }
+        .admin-btn:hover { background: #172A45; }
+        .editor-notice { display: none; background: #C6F6D5; color: #22543D; padding: 15px; text-align: center; border-radius: 6px; font-weight: bold; max-width: 600px; margin: 20px auto; }
+        
+        .contact-panel { background: white; padding: 40px; border-radius: 8px; text-align: center; max-width: 600px; margin: 0 auto; }
+        .contact-item { margin: 25px 0; }
+        .contact-link { color: var(--accent-orange); text-decoration: none; font-weight: bold; }
+        footer { background: #060F1E; color: #8892B0; padding: 40px 5%; text-align: center; margin-top: 80px; }
     </style>
 </head>
 <body>
@@ -81,45 +67,66 @@
         <div class="logo">Click2<span>Cargo</span></div>
         <nav>
             <button class="nav-tab active" onclick="switchPage('home')">Home</button>
-            <button class="nav-tab" onclick="switchPage('about')">About Founder</button>
-            <button class="nav-tab" onclick="switchPage('services')">Services</button>
-            <button class="nav-tab" onclick="switchPage('dei')">DEI Youth Network</button>
+            <button class="nav-tab" onclick="switchPage('about')">About</button>
+            <button class="nav-tab" onclick="switchPage('services')">Capabilities</button>
+            <button class="nav-tab" onclick="switchPage('schemes')">Govt Schemes</button>
+            <button class="nav-tab" onclick="switchPage('enquiry')">Enquiry Portal</button>
+            <button class="nav-tab" onclick="switchPage('fleet')">Join Fleet</button>
             <button class="nav-tab" onclick="switchPage('contact')">Contact Desk</button>
         </nav>
-        <div class="udyam-badge">TS-REGD: UDYAM-TS-20-0205801</div>
+        <div class="udyam-badge">TS-REGD: <span class="edit-field" id="udyam-id">UDYAM-TS-20-0205801</span></div>
     </header>
+
+    <div style="max-width: 1200px; margin: 20px auto 0; padding: 0 8%;">
+        <div class="counter-section">
+            <p>📊 Click2Cargo Global Digital Traffic</p>
+            <div class="counter-number">
+                <img src="https://pythonanywhere.com" alt="Visitor Count">
+            </div>
+            <p style="font-size: 12px; color: #8892B0; margin-top: 5px;">Total verification clicks logged from corporate supply chain managers</p>
+        </div>
+        <div id="success-notice" class="editor-notice">🔒 2026 ADMIN MASTER PORTAL UNLOCKED: System control ledger is now fully active for content adjustments!</div>
+    </div>
 
     <!-- PAGE 1: HOME PANEL -->
     <main id="home" class="page-content active-page">
         <div class="hero">
-            <h1>Premium Unmanned Cold Chain Infrastructure</h1>
-            <p>Deploying factory-fresh, sub-zero refrigerated commercial vehicle assets across pharmaceutical and food logistics hubs in Telangana under absolute corporate dry-lease frameworks.</p>
-            <button class="cta-btn" onclick="switchPage('contact')">Get Immediate Allocation</button>
-            <button class="cta-btn secondary-btn" onclick="switchPage('dei')">Explore Social Mission</button>
+            <h1 class="edit-field" id="hero-title">Premium Unmanned Cold Chain Infrastructure</h1>
+            <p class="edit-field" id="hero-desc">Deploying factory-fresh, sub-zero refrigerated commercial vehicle assets across pharmaceutical hubs in Telangana.</p>
+            <button class="cta-btn" onclick="switchPage('enquiry')">Launch Corporate Enquiry</button>
         </div>
+        
+        <!-- SECURE OWNER-ONLY PANEL 1: LIVE VEHICLE ALLOCATION STATUS BOARD -->
+        <div class="owner-only-section">
+            <h2 class="edit-field" id="status-board-title">🔒 Private Asset Pipeline Status</h2>
+            <div class="grid-layout" style="margin-bottom: 40px;">
+                <div class="info-card" style="text-align: center; border-top-color: #48BB78;">
+                    <h3 class="edit-field" id="stat1-n">05 Vehicles</h3>
+                    <span class="status-badge">Next Batch Allocation Available</span>
+                    <p class="edit-field" id="stat1-d" style="font-size: 13px; margin-top: 5px;">Mahindra Bolero / Tata Intra Reefer Chassis reserved for incoming corporate LOI attachment.</p>
+                </div>
+                <div class="info-card" style="text-align: center; border-top-color: #3182CE;">
+                    <h3 class="edit-field" id="stat2-n">100 Members</h3>
+                    <span class="status-badge" style="background:#EBF8FF; color:#2B6CB0;">On-Ground Youth Pool Active</span>
+                    <p class="edit-field" id="stat2-d" style="font-size: 13px; margin-top: 5px;">Marginalized SC/ST/BC micro-entrepreneurs living below the poverty line, ready to secure assets.</p>
+                </div>
+            </div>
+        </div>
+
         <div class="grid-layout">
             <div class="info-card">
-                <h3>Asset-Light Operations</h3>
-                <p>We strictly provision the physical refrigerated asset. The lessee manages all driver allocations, fueling parameters, and operational routes.</p>
+                <h3 class="edit-field" id="card1-title">Asset-Light Operations</h3>
+                <p class="edit-field" id="card1-desc">We strictly provision the physical refrigerated asset. The lessee manages all driver allocations and fueling parameters.</p>
             </div>
             <div class="info-card">
-                <h3>Zero Overhead Risk</h3>
-                <p>Eliminate driver absenteeism, labor liabilities, and recurring maintenance worries from your balance sheets completely.</p>
+                <h3 class="edit-field" id="card2-title">Zero Overhead Risk</h3>
+                <p class="edit-field" id="card2-desc">Eliminate driver absenteeism, labor regulatory liabilities, and recurring vehicle maintenance worries completely.</p>
             </div>
         </div>
     </main>
 
-    <!-- PAGE 2: ABOUT THE FOUNDER -->
+    <!-- PAGE 2: ABOUT -->
     <main id="about" class="page-content">
-        <h2 class="section-title">Leadership Profile & Vision</h2>
-        <div class="profile-container">
-            <!-- Embedded Founder Image Asset -->
-            <img src="https://unsplash.com" alt="Gaganam Ravikumar" class="profile-photo">
-            
-            <div class="profile-text">
-                <h3 style="font-size: 24px; margin-bottom: 5px; color: var(--primary-navy);">Gaganam Ravikumar</h3>
-                <p style="font-weight: 700; color: var(--accent-orange); margin-bottom: 20px;">Founder & Managing Director | Click2Cargo Logistics</p>
-                
-                <p style="margin-bottom: 15px;">Gaganam Ravikumar is a forward-thinking SC entrepreneur based in Telangana, India. Recognizing the critical operational vulnerabilities within cold-chain transport corridors—specifically related to morning driver absenteeism and micro-refrigeration compliance—he established Click2Cargo Logistics to bridge the gap between enterprise performance and grassroots economic mobilization.</p>
-                
-                <h4 style="color: var(--primary-navy); margin: 20px 0 10px; font-size: 18px; font-weight: 700;">Our Vision</h4>
+        <h2 class="edit-field" id="about-title">Leadership Profile & Vision</h2>
+        <div class="info-card" style="line-height: 1.8;">
+            <h3 class="edit-field" id="founder-name">Gaganam Ravikumar</h3>
