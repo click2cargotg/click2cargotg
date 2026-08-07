@@ -4,40 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Click2Cargo Logistics | Enterprise B2B Cold Chain Leasing</title>
-    <style>
-        :root { --primary-navy: #0A192F; --accent-orange: #FF6B35; --text-dark: #0A192F; }
-        body { color: var(--text-dark); background-color: #F8FAFC; line-height: 1.6; }
-        header { background: var(--primary-navy); color: white; padding: 20px; }
-        .hero { text-align: center; padding: 50px; }
-        .cta-btn { background: var(--accent-orange); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; }
-        .grid-layout { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-        .info-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .edit-field { border: 1px dashed transparent; }
-        .edit-field[contenteditable="true"] { border-color: var(--accent-orange); background: #FFFDE7; }
-        .admin-login-box { text-align: center; padding: 20px; margin: 20px; border: 1px solid #ccc; }
-    </style>
 </head>
-<body>
-    <header><h1>Click2<span>Cargo</span></h1></header>
-    <main class="page-content active-page">
-        <div class="hero">
-            <h2 class="edit-field" id="hero-title">Premium Cold Chain Logistics</h2>
-            <p class="edit-field" id="hero-desc">Sub-zero refrigerated transport solutions in Telangana.</p>
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; background-color: #F8FAFC; color: #0A192F;">
+
+    <!-- ENTERPRISE FIXED HEADER NAVIGATION -->
+    <header style="background-color: #0A192F; color: white; padding: 20px 5%; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.15); position: sticky; top: 0; z-index: 1000;">
+        <h1 style="margin: 0 0 15px 0; font-size: 28px; font-weight: 800;">Click2<span style="color: #FF6B35;">Cargo</span> Logistics</h1>
+        
+        <!-- Interactive Navigation Buttons via simple inline triggers -->
+        <nav style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 10px;">
+            <button onclick="switchTab('tab-home')" style="background: rgba(255,107,53,0.1); color: #FF6B35; border: 1px solid #FF6B35; padding: 8px 16px; font-weight: bold; cursor: pointer; border-radius: 4px;">Home</button>
+            <button onclick="switchTab('tab-about')" style="background: transparent; color: #8892B0; border: none; padding: 8px 16px; font-weight: bold; cursor: pointer;">About</button>
+            <button onclick="switchTab('tab-services')" style="background: transparent; color: #8892B0; border: none; padding: 8px 16px; font-weight: bold; cursor: pointer;">Capabilities</button>
+            <button onclick="switchTab('tab-schemes')" style="background: transparent; color: #8892B0; border: none; padding: 8px 16px; font-weight: bold; cursor: pointer;">Govt Schemes</button>
+            <button onclick="switchTab('tab-enquiry')" style="background: transparent; color: #8892B0; border: none; padding: 8px 16px; font-weight: bold; cursor: pointer;">Enquiry Portal</button>
+            <button onclick="switchTab('tab-fleet')" style="background: transparent; color: #8892B0; border: none; padding: 8px 16px; font-weight: bold; cursor: pointer;">Join Fleet</button>
+            <button onclick="switchTab('tab-contact')" style="background: transparent; color: #8892B0; border: none; padding: 8px 16px; font-weight: bold; cursor: pointer;">Contact Desk</button>
+        </nav>
+        
+        <div style="background: rgba(255,107,53,0.15); padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; border: 1px solid #FF6B35; color: #FF6B35; display: inline-block;">REGD ID: <span class="edit-field">UDYAM-TS-20-0205801</span></div>
+    </header>
+
+    <!-- CENTRAL CONSOLE WORKSPACE -->
+    <div style="max-width: 1000px; margin: 20px auto; padding: 0 20px;">
+        
+        <!-- INTERNAL TRAFFIC METRIC GENERATOR -->
+        <div style="background-color: #172A45; color: white; padding: 15px; text-align: center; border-radius: 8px; margin-bottom: 25px;">
+            <p style="margin: 0; font-size: 14px; font-weight: bold; color: #8892B0;">📊 Click2Cargo Global Digital Traffic</p>
+            <div style="margin-top: 8px;"><img src="https://pythonanywhere.com" alt="Visitor Metric"></div>
         </div>
-        <div class="grid-layout">
-            <div class="info-card"><h3 class="edit-field">Asset-Light</h3><p class="edit-field">Reefer provisioning.</p></div>
-            <div class="info-card"><h3 class="edit-field">Zero Risk</h3><p class="edit-field">Maintenance-free.</p></div>
+
+        <div id="admin-banner" style="display: none; background-color: #C6F6D5; color: #22543D; padding: 12px; text-align: center; border-radius: 6px; font-weight: bold; margin-bottom: 20px;">🔓 ADMIN MASTER CONSOLE ACTIVE: All text blocks are unlocked for direct inline customization.</div>
+
+        <!-- 1. HOME CONSOLE CONTAINER -->
+        <div id="tab-home" class="tab-view">
+            <div style="background-color: #0A192F; color: white; padding: 60px 40px; text-align: center; border-radius: 12px; margin-bottom: 30px;">
+                <h2 class="edit-field" style="font-size: 36px; margin: 0 0 15px 0;">Premium Unmanned Cold Chain Infrastructure</h2>
+                <p class="edit-field" style="color: #8892B0; font-size: 17px; margin-bottom: 30px;">Deploying factory-fresh, sub-zero refrigerated commercial vehicle assets across pharmaceutical hubs in Telangana under dry-lease frameworks.</p>
+                <button onclick="switchTab('tab-enquiry')" style="background-color: #FF6B35; color: white; padding: 14px 32px; border: none; font-weight: bold; border-radius: 6px; cursor: pointer; font-size: 16px;">Launch Corporate Enquiry Portal ➔</button>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); border-top: 4px solid #0A192F;">
+                    <h3 class="edit-field" style="margin: 0 0 10px 0;">Asset-Light Framework</h3>
+                    <p class="edit-field" style="color: #566573; font-size: 14px;">We strictly provision the physical refrigerated asset box. The corporate client manages drivers, routing, and fuel networks completely.</p>
+                </div>
+                <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); border-top: 4px solid #0A192F;">
+                    <h3 class="edit-field" style="margin: 0 0 10px 0;">Zero Overhead Liabilities</h3>
+                    <p class="edit-field" style="color: #566573; font-size: 14px;">Eliminate driver absenteeism, labor operational regulations, and recurring vehicle mechanical upkeep costs from your books entirely.</p>
+                </div>
+            </div>
         </div>
-    </main>
-    <div class="admin-login-box" id="auth-box">
-        <input type="password" id="pass-input" placeholder="Password"><button onclick="verifyOwner()">Login</button>
-    </div>
-    <script>
-        function verifyOwner() {
-            if(document.getElementById('pass-input').value === '2026') {
-                document.querySelectorAll('.edit-field').forEach(f => f.setAttribute('contenteditable', 'true'));
-            } else { alert('Invalid Password'); }
-        }
-    </script>
-</body>
-</html>
+
+        <!-- 2. ABOUT CONSOLE CONTAINER -->
+        <div id="tab-about" class="tab-view" style="display: none;">
+            <h2 style="border-bottom: 3px solid #FF6B35; padding-bottom: 5px; display: inline-block;">Leadership Profile & Strategic Vision</h2>
+            <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); margin-top: 20px;">
+                <h3 class="edit-field" style="margin: 0 0 5px 0;">Gaganam Ravikumar</h3>
+                <p style="color: #FF6B35; font-weight: bold; margin-bottom: 15px;">Founder & Managing Director | Click2Cargo Logistics</p>
+                <p class="edit-field" style="color: #566573; line-height: 1.8;">Gaganam Ravikumar is a forward-thinking SC entrepreneur based in Telangana. Recognizing the critical supply chain bottlenecks within temperature-controlled logistics corridors, he built Click2Cargo to allocate premium transport assets under unmanned dry-lease operations while mobilizing a dedicated network of 100 unemployed youth from marginalized backgrounds into self-reliant entrepreneurs.</p>
+            </div>
+        </div>
+
+        <!-- 3. CAPABILITIES SERVICES CONSOLE -->
+        <div id="tab-services" class="tab-view" style="display: none;">
+            <h2 style="border-bottom: 3px solid #FF6B35; padding-bottom: 5px; display: inline-block;">Precision Temperature Capabilities</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div style="background: white; padding: 25px; border-radius: 8px; border-top: 4px solid #3182CE;"><h3 class="edit-field">Chilled (+2°C to +8°C)</h3><p class="edit-field" style="color:#566573; font-size:14px;">Engineered strictly for critical pharmaceutical vaccines, biological samples, and fresh dairy supply runs.</p></div>
+                <div style="background: white; padding: 25px; border-radius: 8px; border-top: 4px solid #FF6B35;"><h3 class="edit-field">Deep Frozen (-20°C to -25°C)</h3><p class="edit-field" style="color:#566573; font-size:14px;">Heavy-duty variable compression units built for frozen foods, biological materials, and chemical elements.</p></div>
+            </div>
+        </div>
+
+        <!-- 4. GOVT SCHEMES DISPLAY -->
+        <div id="tab-schemes" class="tab-view" style="display: none;">
+            <h2>Government Funding & Policy Support</h2>
+            <div style="background: white; padding: 25px; border-radius: 8px; margin-top: 20px; border-left: 5px solid #3182CE; margin-bottom: 20px;">
+                <h3>🇮🇳 Startup India Recognition</h3>
+                <p class="edit-field" style="color:#566573;">Unlocks complete income tax exemptions for 3 years, fast-tracks priority procurement panels, and waives traditional "prior experience" parameters for corporate logistics contracts.</p>
+            </div>
+            <div style="background: white; padding: 25px; border-radius: 8px; border-left: 5px solid #FF6B35;">
+                <h3>🛰️ Telangana T-PRIDE Subsidy</h3>
+                <p class="edit-field" style="color:#566573;">Provides a massive **35% direct investment capital subsidy** on commercial refrigerated transport vehicles alongside full GST/Sales Tax reimbursements for 5 years.</p>
+            </div>
+        </div>
+
+        <!-- 5. INTERACTIVE ENQUIRY PORTAL -->
+        <div id="tab-enquiry" class="tab-view" style="display: none;">
+            <h2 style="text-align: center;">B2B Fleet Allocation Enquiry Portal</h2>
+            <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 20px; border-top: 4px solid #FF6B35;">
+                <form onsubmit="executeWhatsAppRoute(); return false;">
+                    <div style="margin-bottom: 15px;"><label style="display:block; font-weight:bold; margin-bottom:5px;">Corporate Company Name</label><input type="text" id="form-cname" style="width:100%; padding:10px; border:1px solid #CBD5E0; border-radius:4px;" required placeholder="e.g. Coldman Logistics Hub"></div>
