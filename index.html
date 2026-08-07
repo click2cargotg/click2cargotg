@@ -3,106 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <title>Click2Cargo Logistics | B2B Cold Chain Asset Leasing Telangana</title>
+    <title>Click2Cargo Logistics | B2B Cold Chain Infrastructure Leasing</title>
     <style>
         :root {
-            --primary-navy: #0B2545;
+            --primary-navy: #0A192F;
+            --secondary-blue: #172A45;
             --accent-orange: #FF6B35;
-            --bg-light: #F4F5F7;
-            --text-dark: #1D2A44;
-            --card-white: #FFFFFF;
+            --text-light: #F4F6F9;
+            --text-dark: #0A192F;
+            --card-bg: #FFFFFF;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-        body { color: var(--text-dark); background-color: var(--bg-light); line-height: 1.6; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        body { color: var(--text-dark); background-color: #F8FAFC; line-height: 1.6; }
         
-        header { background: var(--primary-navy); color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
-        .brand-logo { font-size: 24px; font-weight: 800; letter-spacing: 0.5px; }
-        .brand-logo span { color: var(--accent-orange); }
-        .compliance-badge { background: rgba(255,255,255,0.1); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: bold; border: 1px solid rgba(255,255,255,0.2); text-transform: uppercase; }
+        /* Premium Header & Navigation */
+        header { background: var(--primary-navy); color: white; padding: 20px 8%; display: flex; flex-direction: column; align-items: center; gap: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); position: sticky; top: 0; z-index: 1000; }
+        @media(min-width: 768px) { header { flex-direction: row; justify-content: space-between; } }
+        .logo { font-size: 28px; font-weight: 800; letter-spacing: 0.5px; }
+        .logo span { color: var(--accent-orange); }
+        .udyam-badge { background: rgba(255,107,53,0.15); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; border: 1px solid var(--accent-orange); color: var(--accent-orange); }
         
-        .hero-banner { background: linear-gradient(rgba(11, 37, 69, 0.9), rgba(11, 37, 69, 0.95)), url('https://unsplash.com') center/cover; color: white; padding: 80px 5%; text-align: center; }
-        .hero-banner h1 { font-size: 38px; font-weight: 800; margin-bottom: 15px; line-height: 1.2; }
-        .hero-banner p { font-size: 16px; max-width: 750px; margin: 0 auto 25px; color: #D0D6E2; }
+        nav { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        .nav-tab { background: transparent; color: #8892B0; border: none; padding: 8px 16px; font-size: 14px; font-weight: 600; cursor: pointer; border-radius: 4px; transition: 0.3s; }
+        .nav-tab:hover, .nav-tab.active { color: var(--accent-orange); background: rgba(255,107,53,0.1); }
+
+        /* Dynamic Pages Handling */
+        .page-content { display: none; padding: 60px 8%; max-width: 1200px; margin: 0 auto; min-height: 60vh; }
+        .page-content.active-page { display: block; animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Hero Banner Section with Reefer Vehicle Background */
+        .hero { background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.95)), url('https://unsplash.com') center/cover; color: white; padding: 100px 5%; text-align: center; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .hero h1 { font-size: 42px; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+        .hero p { font-size: 18px; max-width: 800px; margin: 0 auto 35px; color: #8892B0; }
         
-        .action-button { background: var(--accent-orange); color: white; padding: 14px 32px; text-decoration: none; font-weight: 700; border-radius: 6px; display: inline-block; box-shadow: 0 4px 14px rgba(255,107,53,0.3); transition: transform 0.2s, background 0.2s; }
-        .action-button:hover { background: #E0531C; transform: translateY(-1px); }
+        /* Functional Button Actions */
+        .cta-btn { background: var(--accent-orange); color: white; padding: 14px 35px; text-decoration: none; font-weight: 700; border-radius: 6px; display: inline-block; box-shadow: 0 4px 15px rgba(255,107,53,0.4); transition: 0.3s; margin: 10px; font-size: 16px; border: none; cursor: pointer; }
+        .cta-btn:hover { background: #E0531C; transform: translateY(-2px); }
+        .secondary-btn { background: transparent; color: white; border: 2px solid #8892B0; }
+        .secondary-btn:hover { border-color: var(--accent-orange); color: var(--accent-orange); background: rgba(255,107,53,0.05); }
+
+        /* Structure Cards & Layouts */
+        .section-title { font-size: 32px; color: var(--primary-navy); margin-bottom: 40px; font-weight: 800; position: relative; }
+        .section-title::after { content: ''; display: block; width: 50px; height: 5px; background: var(--accent-orange); margin-top: 10px; border-radius: 2px; }
         
-        .communication-strip { display: flex; flex-direction: column; gap: 8px; align-items: center; margin-top: 25px; font-size: 14px; color: #D0D6E2; }
-        .communication-strip a { color: var(--accent-orange); text-decoration: none; font-weight: bold; }
+        .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
+        .info-card { background: var(--card-bg); padding: 35px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); border-top: 4px solid var(--primary-navy); transition: 0.3s; }
+        .info-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        .info-card h3 { color: var(--primary-navy); font-size: 22px; margin-bottom: 15px; }
+        .info-card p { color: #566573; font-size: 15px; }
 
-        .main-container { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
-        .section-heading { text-align: center; font-size: 28px; color: var(--primary-navy); margin-bottom: 35px; font-weight: 800; }
-        .section-heading::after { content: ''; display: block; width: 50px; height: 4px; background: var(--accent-orange); margin: 8px auto 0; border-radius: 2px; }
+        /* Profile Layout Container */
+        .profile-container { display: flex; flex-direction: column; gap: 40px; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); margin: 0 auto; max-width: 1000px; }
+        @media(min-width: 768px) { .profile-container { flex-direction: row; align-items: flex-start; } }
+        .profile-photo { width: 220px; height: 220px; border-radius: 8px; object-fit: cover; border: 4px solid var(--primary-navy); box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin: 0 auto; flex-shrink: 0; }
+        .profile-text { flex-grow: 1; line-height: 1.8; }
 
-        .services-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
-        .solution-card { background: var(--card-white); padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border-top: 4px solid var(--primary-navy); }
-        .solution-card h3 { margin-bottom: 12px; color: var(--primary-navy); font-size: 20px; font-weight: 700; }
-        .solution-card p { font-size: 14px; color: #50617A; }
+        /* Empathy/DEI Impact Box Banner with Logistics Image Background */
+        .impact-banner { background: linear-gradient(rgba(23, 42, 69, 0.95), rgba(23, 42, 69, 0.98)), url('https://unsplash.com') center/cover; color: white; padding: 45px; border-radius: 8px; border-left: 6px solid var(--accent-orange); margin-top: 20px; }
+        .impact-banner h3 { font-size: 26px; color: white; margin-bottom: 15px; }
+        .impact-banner p { color: #8892B0; font-size: 16px; margin-bottom: 15px; }
 
-        .impact-statement-card { background: var(--card-white); border-left: 6px solid var(--accent-orange); padding: 35px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-        .impact-statement-card h3 { color: var(--primary-navy); margin-bottom: 12px; font-size: 22px; font-weight: 700; }
-        .impact-statement-card p { font-size: 15px; color: #3A4A63; margin-bottom: 12px; }
+        /* Contact Details Panel Layout */
+        .contact-panel { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); max-width: 600px; margin: 0 auto; text-align: center; }
+        .contact-item { margin: 25px 0; font-size: 18px; font-weight: 600; }
+        .contact-item span { display: block; font-size: 14px; color: #7F8C8D; margin-bottom: 5px; font-weight: normal; }
+        .contact-link { color: var(--accent-orange); text-decoration: none; border-bottom: 2px solid transparent; transition: 0.3s; }
+        .contact-link:hover { border-color: var(--accent-orange); }
 
-        footer { background: #061324; color: #8A9CB6; padding: 40px 5%; text-align: center; font-size: 13px; margin-top: 60px; border-top: 1px solid #102642; }
-        .footer-logo { color: white; font-weight: 700; font-size: 18px; margin-bottom: 6px; }
-        .footer-founder { color: #D0D6E2; font-size: 14px; margin-bottom: 15px; font-style: italic; }
+        footer { background: #060F1E; color: #8892B0; padding: 40px 5%; text-align: center; font-size: 13px; margin-top: 80px; border-top: 1px solid #172A45; }
+        .footer-logo { color: white; font-weight: 700; font-size: 20px; margin-bottom: 5px; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="brand-logo">Click2<span>Cargo</span></div>
-        <div class="compliance-badge">MSME: UDYAM-TS-20-0205801</div>
+        <div class="logo">Click2<span>Cargo</span></div>
+        <nav>
+            <button class="nav-tab active" onclick="switchPage('home')">Home</button>
+            <button class="nav-tab" onclick="switchPage('about')">About Founder</button>
+            <button class="nav-tab" onclick="switchPage('services')">Services</button>
+            <button class="nav-tab" onclick="switchPage('dei')">DEI Youth Network</button>
+            <button class="nav-tab" onclick="switchPage('contact')">Contact Desk</button>
+        </nav>
+        <div class="udyam-badge">TS-REGD: UDYAM-TS-20-0205801</div>
     </header>
 
-    <section class="hero-banner">
-        <h1>Unmanned Cold Chain Asset Deployments</h1>
-        <p>Providing premium, factory-fresh refrigerated transport infrastructure across Telangana. Engineered for total temperature compliance under absolute corporate operational control.</p>
-        
-        <!-- Secure, direct communication anchor -->
-        <a href="https://wa.me." target="_blank" class="action-button">⚡ Secure Fleet Attachment Desk</a>
-        
-        <div class="communication-strip">
-            <span>📞 Primary Direct Hub Line: +91 81429 23738</span>
-            <span>✉️ Operations Mailbox: <a href="mailto:click2cargo.tg@gmail.com">click2cargo.tg@gmail.com</a></span>
+    <!-- PAGE 1: HOME PANEL -->
+    <main id="home" class="page-content active-page">
+        <div class="hero">
+            <h1>Premium Unmanned Cold Chain Infrastructure</h1>
+            <p>Deploying factory-fresh, sub-zero refrigerated commercial vehicle assets across pharmaceutical and food logistics hubs in Telangana under absolute corporate dry-lease frameworks.</p>
+            <button class="cta-btn" onclick="switchPage('contact')">Get Immediate Allocation</button>
+            <button class="cta-btn secondary-btn" onclick="switchPage('dei')">Explore Social Mission</button>
         </div>
-    </section>
-
-    <main class="main-container">
-        <h2 class="section-heading">Operational Infrastructure Architecture</h2>
-        
-        <div class="services-layout">
-            <div class="solution-card">
-                <h3>Pure Unmanned Dry Lease</h3>
-                <p>Click2Cargo strictly provisions the certified physical sub-zero refrigerated asset (+4°C to -20°C). The lessee deploys its own company drivers, fueling protocols, and routine upkeep matching internal safety compliance standards.</p>
+        <div class="grid-layout">
+            <div class="info-card">
+                <h3>Asset-Light Operations</h3>
+                <p>We strictly provision the physical refrigerated asset. The lessee manages all driver allocations, fueling parameters, and operational routes.</p>
             </div>
-            <div class="solution-card">
-                <h3>Zero Management Overhead</h3>
-                <p>Eliminate line-haul friction, morning driver absenteeism, and labor regulatory liabilities. Receive clean, reliable transport infrastructure managed via highly transparent monthly lease terms.</p>
+            <div class="info-card">
+                <h3>Zero Overhead Risk</h3>
+                <p>Eliminate driver absenteeism, labor liabilities, and recurring maintenance worries from your balance sheets completely.</p>
             </div>
-            <div class="solution-card">
-                <h3>Pharma & Food Compliance</h3>
-                <p>Assets are optimized for specialized temperature-controlled cargo movements connecting Hyderabad, Medchal warehousing clusters, and regional manufacturing zones seamlessly.</p>
-            </div>
-        </div>
-
-        <h2 class="section-heading">Social Mobilization & Strategic Value</h2>
-        
-        <div class="impact-statement-card">
-            <h3>Empowering 100 Grassroots Micro-Entrepreneurs</h3>
-            <p>Click2Cargo Logistics operates as a certified SC-owned enterprise directed by Gaganam Ravikumar. We have successfully mobilized a dedicated network of 100 unemployed youth from SC, ST, and BC communities living below the poverty line who are fully trained and ready to launch independent infrastructure careers.</p>
-            <p style="font-weight: 700; color: var(--accent-orange);">Partnering with Click2Cargo guarantees exceptional on-ground logistics readiness while instantly fulfilling your corporate Diversity, Equity, and Inclusion (DEI) vendor procurement quotas through verified operational merit.</p>
         </div>
     </main>
 
-    <footer>
-        <div class="footer-logo">Click2Cargo Logistics</div>
-        <div class="footer-founder">Managing Director: Gaganam Ravikumar</div>
-        <p>Ministry of MSME Certified Micro Enterprise | Telangana, India</p>
-        <p>&copy; 2026 Click2Cargo. All Rights Reserved.</p>
-    </footer>
-
-</body>
-</html>
+    <!-- PAGE 2: ABOUT THE FOUNDER -->
+    <main id="about" class="page-content">
+        <h2 class="section-title">Leadership Profile & Vision</h2>
+        <div class="profile-container">
+            <!-- Embedded Founder Image Asset -->
+            <img src="https://unsplash.com" alt="Gaganam Ravikumar" class="profile-photo">
+            
+            <div class="profile-text">
+                <h3 style="font-size: 24px; margin-bottom: 5px; color: var(--primary-navy);">Gaganam Ravikumar</h3>
+                <p style="font-weight: 700; color: var(--accent-orange); margin-bottom: 20px;">Founder & Managing Director | Click2Cargo Logistics</p>
+                
+                <p style="margin-bottom: 15px;">Gaganam Ravikumar is a forward-thinking SC entrepreneur based in Telangana, India. Recognizing the critical operational vulnerabilities within cold-chain transport corridors—specifically related to morning driver absenteeism and micro-refrigeration compliance—he established Click2Cargo Logistics to bridge the gap between enterprise performance and grassroots economic mobilization.</p>
+                
+                <h4 style="color: var(--primary-navy); margin: 20px 0 10px; font-size: 18px; font-weight: 700;">Our Vision</h4>
